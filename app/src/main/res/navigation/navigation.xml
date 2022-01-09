@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/hello">
+
+    <fragment
+        android:id="@+id/hello"
+        android:name="de.willemer.fragnav.Hello"
+        android:label="fragment_hello"
+        tools:layout="@layout/fragment_hello" >
+        <action
+            android:id="@+id/action_hello_to_frage"
+            app:destination="@id/frage"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/frage"
+        android:name="de.willemer.fragnav.Frage"
+        android:label="fragment_frage"
+        tools:layout="@layout/fragment_frage" >
+        <action
+            android:id="@+id/action_frage_to_antwort"
+            app:destination="@id/antwort" />
+    </fragment>
+    <fragment
+        android:id="@+id/antwort"
+        android:name="de.willemer.fragnav.Antwort"
+        android:label="fragment_antwort"
+        tools:layout="@layout/fragment_antwort" >
+        <action
+            android:id="@+id/action_antwort_to_frage"
+            app:destination="@id/frage"
+            app:popUpTo="@id/hello"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
